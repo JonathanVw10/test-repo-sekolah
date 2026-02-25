@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jurnal Petualang - Kawah Putih</title>
+    <style>
+        /* --- 1. RESET & GLOBAL STYLE --- */
+        body {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #ffffff;
+            color: #444;
+            line-height: 1.8;
+        }
+
+        a { text-decoration: none; color: #222; transition: color 0.3s; }
+        a:hover { color: #0088cc; }
+        
+        h1, h2, h3, h4 {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            font-weight: normal;
+            margin-bottom: 10px;
+            color: #222;
+        }
+
+       /* --- 2. HERO HEADER (SLIDESHOW) --- */
+        header {
+            height: 550px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: #fff;
+            padding: 20px;
+            position: relative; 
+            overflow: hidden; 
+            background-color: #222; 
+        }
+
+        header::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            z-index: 0; 
+            background-size: cover;
+            background-position: center;
+            animation: gantiGambarHalus 18s infinite ease-in-out;
+        }
+
+        .site-branding {
+            position: relative;
+            z-index: 1; 
+            border: 4px solid #fff;
+            padding: 25px 50px;
+            background-color: rgba(255,255,255,0.1);
+            backdrop-filter: blur(5px);
+        }
+
+        /* --- DAFTAR GAMBAR SLIDESHOW --- */
+        @keyframes gantiGambarHalus {
+            0% {
+                background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://t4.ftcdn.net/jpg/02/93/27/33/360_F_293273350_05yvUKJYjTjho5t6UsHcSZq6d9KW8qFz.jpg');
+                opacity: 0; 
+                transform: scale(1);
+            }
+            5% { opacity: 1; } 
+            30% {
+                background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://t4.ftcdn.net/jpg/02/93/27/33/360_F_293273350_05yvUKJYjTjho5t6UsHcSZq6d9KW8qFz.jpg');
+                opacity: 1;
+                transform: scale(1.05); 
+            }
+            33% { opacity: 0; } 
+
+            33.1% {
+                background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://www.agoda.com/wp-content/uploads/2024/06/White-crater-or-Kawah-Putih-Bandung-Indonesia.jpg');
+                opacity: 0; 
+                transform: scale(1);
+            }
+            38% { opacity: 1; } 
+            63% {
+                background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://www.agoda.com/wp-content/uploads/2024/06/White-crater-or-Kawah-Putih-Bandung-Indonesia.jpg');
+                opacity: 1;
+                transform: scale(1.05);
+            }
+            66% { opacity: 0; } 
+
+            66.1% {
+                background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://www.king-adventure.com/wp-content/uploads/2016/05/KP-10.jpg');
+                opacity: 0;
+                transform: scale(1);
+            }
+            71% { opacity: 1; }
+            96% {
+                background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://www.king-adventure.com/wp-content/uploads/2016/05/KP-10.jpg');
+                opacity: 1;
+                transform: scale(1.05);
+            }
+            100% { opacity: 0; } 
+        }
+
+        .site-title {
+            font-size: 3.5rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            font-family: 'Georgia', serif;
+            color: #fff;
+            margin: 0;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.8);
+        }
+
+        .site-description {
+            font-size: 1.1rem;
+            color: #f0f0f0;
+            margin-top: 10px;
+            font-style: italic;
+            letter-spacing: 1px;
+            text-shadow: 1px 1px 4px rgba(0,0,0,0.8);
+        }
+
+        /* --- 3. NAVIGASI --- */
+        nav {
+            background: #fff;
+            border-bottom: 1px solid #eee;
+            text-align: center;
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        nav a {
+            margin: 0 15px;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: bold;
+            color: #555;
+        }
+
+        /* --- 4. LAYOUT UTAMA --- */
+        .container {
+            max-width: 1080px;
+            margin: 40px auto;
+            display: flex;
+            flex-wrap: wrap;
+            padding: 0 20px;
+        }
+
+        .main-content { flex: 7; padding-right: 40px; }
+        .sidebar { flex: 3; border-left: 1px solid #eee; padding-left: 30px; }
+
+        /* --- 5. ARTIKEL --- */
+        .post { margin-bottom: 60px; }
+
+        .post-img {
+            width: 100%;
+            height: 450px;
+            object-fit: cover;
+            display: block;
+            margin-bottom: 25px;
+            border-radius: 4px;
+        }
+
+        .post-header { text-align: center; margin-bottom: 20px; }
+
+        .post-cat {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            color: #008080;
+            letter-spacing: 2px;
+            font-weight: bold;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .post-title { font-size: 2.2rem; margin: 10px 0; line-height: 1.3; }
+        .post-meta { font-size: 0.9rem; color: #999; font-style: italic; }
+        
+        .post-excerpt { text-align: justify; }
+
+        .info-box {
+            background: #eef9f9;
+            border-left: 4px solid #008080;
+            padding: 20px;
+            margin: 25px 0;
+            color: #444;
+        }
+
+        .divider { border: 0; border-top: 1px solid hwb(0 100% 0%); margin: 50px 0; }
+
+        /* --- 6. SIDEBAR --- */
+        .widget { margin-bottom: 40px; }
+        .widget-title {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            border-bottom: 2px solid #222;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            display: inline-block;
+        }
+        
+        .widget-img { width: 100%; margin-bottom: 15px; border-radius: 4px; }
+        .widget-text { font-size: 0.9rem; }
+        .widget-list { padding-left: 20px; }
+
+        /* --- 7. FOOTER --- */
+        footer {
+            background: #222; color: #fff; text-align: center; padding: 50px 0; margin-top: 50px;
+        }
+        .footer-container { justify-content: center; margin-top: 0; }
+
+        /* Responsif HP */
+        @media (max-width: 768px) {
+            .container { flex-direction: column; }
+            .main-content { padding-right: 0; }
+            .sidebar { border-left: none; padding-left: 0; border-top: 1px solid #eee; padding-top: 40px; }
+            header { height: 350px; }
+            .site-title { font-size: 2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="site-branding">
+            <h1 class="site-title">KOLLING TRIP</h1>
+            <h3 class="site-description">Menjelajahi Kawah Putih Ciwidey</h3>
+        </div>
+    </header>
+
+    <nav>
+        <a href="test3.html">Home</a>
+        <a href="test4.html">About Us</a>
+    </nav>
+
+    <div class="container">
+        
+        <div class="main-content">
+            
+            <article class="post">
+                <div class="post-header">
+                    <span class="post-cat">Pesona Alam</span>
+                    <h2 class="post-title">Pesona Magis Kawah Putih: Danau di Atas Awan</h2>
+                    <div class="post-meta">Ciwidey, Bandung • Januari 2026</div>
+                </div>
+
+                <img src="https://bandungfoto.com/wp-content/uploads/2023/04/Harga-Tiket-Masuk-Kawah-Putih-Bandung-Ciwidey.webp" alt="Pemandangan Kawah Putih" class="post-img" />
+
+                <div class="post-excerpt">
+                    <p>Kawah Putih Ciwidey bukan sekadar destinasi wisata biasa, ini adalah sebuah mahakarya alam yang terbentuk dari letusan Gunung Patuha pada abad ke-10. Terletak sekitar 50 kilometer di selatan Bandung, kawah vulkanik ini menawarkan pemandangan surealis yang jarang ditemukan di tempat lain di Indonesia. Daya tarik utamanya terletak pada air danau kawah yang memiliki kadar keasaman tinggi, sehingga warnanya dapat berubah-ubah dari biru kehijauan menjadi putih kapur tergantung pada kadar belerang dan suhu udara. Pemandangan tanah yang memutih secara alami berpadu dengan kabut tipis yang kerap turun menyelimuti permukaan danau, menciptakan atmosfer magis dan romantis yang seolah membawa Anda ke dunia lain.</p>
+
+                    <p>Selain keindahan visualnya yang memukau, Kawah Putih menawarkan pelarian sempurna dari hiruk-pikuk dan panasnya perkotaan. Berada di ketinggian lebih dari 2.400 meter di atas permukaan laut, suhu di kawasan ini sangat sejuk, berkisar antara 8 hingga 22 derajat Celcius, memberikan kesegaran instan bagi siapa saja yang berkunjung. Lanskap di sekitar kawah juga dipercantik oleh keberadaan pohon-pohon Cantigi yang telah mengering akibat aktivitas vulkanik, ranting-rantingnya yang estetik menjadikannya latar belakang foto yang sangat instagramable dan artistik. Fasilitas yang tersedia pun kini sangat memadai, mulai dari jembatan ponton yang menjorok ke tengah danau hingga akses transportasi ontang-anting yang khas, membuat pengalaman wisata Anda nyaman sekaligus berkesan.</p>
+
+                    <p>Kawah Putih adalah sebuah investasi pengalaman yang tak ternilai. Jarang sekali kita bisa berdiri begitu dekat dengan pusat kawah vulkanik purba yang masih aktif namun aman untuk dinikmati keindahannya. Dengan akses yang mudah dijangkau dari pusat kota Bandung dan harga tiket yang terjangkau, tidak ada alasan untuk melewatkan surga tersembunyi ini. Jadikan Kawah Putih sebagai destinasi utama liburan Anda berikutnya, dan rasakan sendiri sensasi berdiri di atas tanah putih yang dikelilingi keajaiban alam yang menenangkan jiwa.</p>
+                </div>
+            </article>
+
+            <hr class="divider">
+
+            <article class="post">
+                <div class="post-header">
+                    <span class="post-cat">Where Nature Feels Magical</span>
+                    <h2 class="post-title">Trip To Kawah Putih</h2>
+                    <div class="post-meta">By Kolling Trip</div>
+                </div>
+                
+                <img src="https://bandungfoto.com/wp-content/uploads/2023/04/fasilitas-kawah-putih.webp" alt="Dermaga Ponton Kawah Putih" class="post-img" />
+                
+                <div class="post-excerpt">
+                    <p>Temukan pilihan harga dan paket wisata terbaik dari Kolling Trip untuk menikmati keindahan Kawah Putih, Ranca Upas, dan Pinisi Resto dengan layanan lengkap dan nyaman.</p>
+                    
+                    <div class="info-box">
+                        <strong>💰 Harga Tiket Kawah Putih (Estimasi):</strong><br>
+                        - Tiket Masuk Wisatawan Nusantara (WNI): Rp 28.000 - Rp 31.000 per orang.<br>
+                        - Tiket Masuk Wisatawan Mancanegara (Wisman): Rp 81.000 - Rp 90.000 per orang.<br>
+                        - Ontang-Anting (Shuttle PP): Rp 29.000 per orang.<br>
+                        - Parkir Kendaraan Roda 4 (Area Bawah): Rp 11.000.<br>
+                        - Charge Kendaraan Roda 4 (Langsung ke Kawah): Rp 179.000 per kendaraan.<br>
+                        - Tiket Sunrise (Sunan Ibu) WNI: Rp 46.000 - Rp 84.000.<br>
+                        - Tiket Sunrise (Sunan Ibu) Wisman: Rp 105.000 - Rp 143.000.<br><br>
+                        <strong>💰 Harga Wahana & Fasilitas Lainnya:</strong><br>
+                        - Jembatan Apung (Ponton): Rp 11.000 - Rp 25.000.<br>
+                        - Kuda Tunggang: Rp 50.000 - Rp 55.000.<br> 
+                        - Panahan: Rp 50.000.<br>
+                        - Parkir Motor: Rp 5.000 - Rp 10.000.<br>
+                        - Parkir Mobil: Rp 10.000 - Rp 15.000.
+                    </div>
+
+                    <div class="info-box">
+                        <strong>📞 Paket Kolling Trip</strong><br>
+                        <strong>💰 Rp 250.000 </strong><br><br>
+                        📍 Paket Sudah Termasuk<br>
+                        - Tiket Masuk Kawah Putih<br>
+                        - Tiket Masuk Ranca Upas<br>
+                        - Kunjungan & Makan di Pinisi Resto<br>
+                        - Fotografer Profesional Selama Perjalanan<br>
+                        - File Foto hasil Dokumentasi<br>
+                        - Transportasi Wisata (BBM + Parkir)<br>
+                        - Guide Wisata<br>
+                        - Air Mineral<br>
+                    </div>
+
+                    <p>Dengan sistem paket ini, wisatawan tidak perlu repot mengurus tiket satu per satu karena seluruh kebutuhan perjalanan sudah disiapkan, sehingga liburan menjadi lebih praktis, nyaman, dan efisien.</p>
+                </div>
+            </article>
+
+        </div>
+
+        <aside class="sidebar">
+            
+            <div class="widget">
+                <h3 class="widget-title">Ciri Khas</h3>
+                <img src="https://tomojikan.com/wp-content/uploads/2019/12/Skywalk-Cantigi-Kawah-Putih-Bandung.jpg" alt="Pohon Cantigi" class="widget-img" />
+                <p class="widget-text">
+                    Salah satu ikon Kawah Putih adalah pohon <strong>Cantigi</strong> yang kering dan menghitam akibat uap belerang. Sangat <em>aesthetic</em> untuk foto!
+                </p>
+            </div>
+
+            <div class="widget">
+                <h3 class="widget-title">Wisata Sekitar</h3>
+                <ul class="widget-list">
+                    <li>Ranca Upas (Camping)</li>
+                    <li>Situ Patenggang</li>
+                    <li>Glamping Lakeside</li>
+                    <li>Kebun Teh Rancabali</li>
+                </ul>
+            </div>
+
+        </aside>
+
+    </div>
+
+    <footer>
+        <div class="container footer-container">
+            <p>&copy; Kolling Trip.<br>Menjelajah Keindahan Kawah Putih.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
